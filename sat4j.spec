@@ -2,7 +2,7 @@
 %{!?scl:%global pkg_name %{name}}
 %{?java_common_find_provides_and_requires}
 
-%global baserelease 1
+%global baserelease 2
 
 # should be consistent across one release
 %global build_date 20130405
@@ -22,6 +22,7 @@ Patch0:         sat4j-classpath.patch
 BuildRequires:  %{?scl_prefix_java_common}ant
 BuildRequires:  %{?scl_prefix_maven}javapackages-local
 Requires:       %{?scl_prefix_java_common}javapackages-tools
+Requires:       %{?scl_prefix}runtime
 
 BuildArch:      noarch
 
@@ -63,6 +64,9 @@ cp -rp dist/%{version}/org.sat4j.pb.jar \
 %{_javadir}/org.sat4j*
 
 %changelog
+* Fri Aug 12 2016 Mat Booth <mat.booth@redhat.com> - 2.3.5-8.2
+- Ensure package requires SCL runtime
+
 * Thu Jul 21 2016 Mat Booth <mat.booth@redhat.com> - 2.3.5-8.1
 - Auto SCL-ise package for rh-eclipse46 collection
 
